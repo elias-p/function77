@@ -11,7 +11,7 @@ variables:
   azureSubscription: 'b1af8825-0fde-44a1-9ebf-63d5bd0410e4'
 
   # Function app name
-  functionAppName: 'alert2eventhub2'
+  functionAppName: 'alert2eventhub'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
