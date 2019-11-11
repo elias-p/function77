@@ -8,7 +8,7 @@ trigger:
 
 variables:
   # Azure Resource Manager connection created during pipeline creation
-  azureSubscription: '20fb9820-2720-4a8b-9579-b63151614037'
+  azureSubscription: 'b1af8825-0fde-44a1-9ebf-63d5bd0410e4'
 
   # Function app name
   functionAppName: 'alert2eventhub2'
