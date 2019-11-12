@@ -70,3 +70,4 @@ azure-storage==0.36.0
 msrestazure==0.6.2
 pyOpenSSL==19.0.0
 adal==1.2.2
+azure-eventhub==1.3.2
