@@ -151,7 +151,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         credentials, subscription_id = get_local_credentials()
     else:
         console = logging.StreamHandler()
-        console.setLevel(logging.DEBUG)
+        console.setLevel(logging.INFO)
         console.setFormatter(formatter)
         credentials, subscription_id = get_azure_credentials()
 
@@ -169,6 +169,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         resource_id = webhook['data']['context']['activityLog']['resourceId']
     elif check_keys('data', 'context', 'scope'):
         resource_id = webhook['data']['context']['scope']
+    elif check_keys('data', 'context', 'activityLog', 'authorization', 'scope'):
+        resource_id = webhook['data']['context']['activityLog']['authorization']['scope']
 
     if resource_id:
         resource_client = ResourceManagementClient(credentials, subscription_id)
