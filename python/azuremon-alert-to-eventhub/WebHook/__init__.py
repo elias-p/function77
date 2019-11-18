@@ -151,7 +151,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         credentials, subscription_id = get_local_credentials()
     else:
         console = logging.StreamHandler()
-        console.setLevel(logging.INFO)
+        console.setLevel(logging.DEBUG)
         console.setFormatter(formatter)
         credentials, subscription_id = get_azure_credentials()
 
