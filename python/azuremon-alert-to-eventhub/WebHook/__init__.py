@@ -179,7 +179,6 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
             if resource.tags:
                 webhook['tags'] = resource.tags
                 logger.info(f"adding tags {resource.tags}")
-                print("tags = {}".format(resource.tags))
                 
             else:
                 logger.info(f"no tags found in resource {resource_id}")
