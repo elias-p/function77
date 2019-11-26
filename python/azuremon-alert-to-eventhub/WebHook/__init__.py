@@ -162,19 +162,22 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     # Handle WebHook
     webhook = req.get_json()
     # Get resource information specifically tags if this is an alert
-    resource_id = ""
+    resource_id = None
     if check_keys(webhook, 'data', 'context', 'resourceId'):
         resource_id = webhook['data']['context']['resourceId']
-    if check_keys('data', 'context', 'activityLog', 'resourceId'):
+    elif check_keys('data', 'context', 'activityLog', 'resourceId'):
         resource_id = webhook['data']['context']['activityLog']['resourceId']
-    
+    elif check_keys('data', 'context', 'scope'):
+        resource_id = webhook['data']['context']['scope']
+    elif check_keys('data', 'context', 'activityLog', 'authorization', 'scope'):
+        resource_id = webhook['data']['context']['activityLog']['authorization']['scope']
+
     if resource_id:
         resource_client = ResourceManagementClient(credentials, subscription_id)
         try:
             resource = resource_client.resources.get_by_id(resource_id, api_version='2018-06-01')
             if resource.tags:
                 webhook['tags'] = resource.tags
-				print("tags = {}".format(resource.tags))
                 logger.info(f"adding tags {resource.tags}")
                 
             else:
