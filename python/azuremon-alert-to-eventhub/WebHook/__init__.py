@@ -162,7 +162,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     # Handle WebHook
     webhook = req.get_json()
     # Get resource information specifically tags if this is an alert
-    resource_id = None
+    resource_id = ""
     if check_keys(webhook, 'data', 'context', 'resourceId'):
         resource_id = webhook['data']['context']['resourceId']
     elif check_keys('data', 'context', 'activityLog', 'resourceId'):
