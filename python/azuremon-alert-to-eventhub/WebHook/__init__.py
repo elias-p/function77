@@ -159,7 +159,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     logger.debug(f"method={req.method}, url={req.url}, params={req.params}")
     logger.debug(f"body={req.get_json()}")
 
-    # Handle WebHook
+    # Handle WebHook.
     webhook = req.get_json()
     # Get resource information specifically tags if this is an alert
     resource_id = ""
