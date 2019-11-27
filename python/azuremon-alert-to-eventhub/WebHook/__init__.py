@@ -187,7 +187,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     else:
         logger.info("no resource_id found in webhook")
 
-    # Key Vault stuff
+    # Key Vault stuff.
     kv_mgmt_client = KeyVaultManagementClient(credentials, subscription_id)
     kv_client = KeyVaultClient(credentials)
     namespace = get_kv_secret(kv_client, 'EventHubNamespace')
