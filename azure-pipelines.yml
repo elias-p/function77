@@ -11,7 +11,7 @@ variables:
   azureSubscription: 'c12ed0d8-e059-4646-b577-d8e1662ea545'
 
   # Function app name
-  functionAppName: 'ep951-function_3'
+  functionAppName: 'ep951vfuncapp77'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
